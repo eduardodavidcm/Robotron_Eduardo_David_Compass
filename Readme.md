@@ -4,5 +4,6 @@
 
 ### Menu
 
-- [x]
-- [x]
+### - [Lista 01 - DIA 5]
+
+### - [Lista 02 - DIA 7]
