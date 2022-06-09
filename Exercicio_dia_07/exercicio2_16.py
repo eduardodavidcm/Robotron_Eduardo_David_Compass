@@ -6,7 +6,6 @@ tabela = pd.read_csv('tabela.csv', encoding='UTF-8', sep=',')
 def listar_simbolo():
     print(tabela.loc[:, ["Simbolo"]])
 
-
 def listar_dados():
     elemento = input('Digite o simbolo do elemento: ')
     print(tabela.loc[tabela['Simbolo'] == elemento])
