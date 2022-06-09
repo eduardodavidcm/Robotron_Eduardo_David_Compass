@@ -1,3 +1,4 @@
+#No JSON 1 printe todas as chaves e valores do time visitante
 import json
 def retornar_json():
     with open ("partida.json", encoding="UTF-8") as json_normal:
@@ -5,5 +6,5 @@ def retornar_json():
         return json_manipulavel
 
 json_retornado = retornar_json()
-placar_mandante = json_retornado["copa-do-brasil"][0]["time_mandante"]["nome_popular"]
-print(placar_mandante)
+time_visitante = json_retornado["copa-do-brasil"][0]["time_visitante"]
+print(time_visitante)
