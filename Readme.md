@@ -5,5 +5,7 @@
 ### Menu
 
 ### - [Lista 01 - DIA 5]
+<p>EXERCÍCIOS LINGUAGEM PYTHON<p>
 
 ### - [Lista 02 - DIA 7]
+<p>EXERCÍCIOS SOBRE MANIPULAÇÃO DE DADOS PYTHON<p>
