@@ -1,4 +1,4 @@
-x = int(input("manda o x: "))
+x = int(input("Digite o x: "))
 if (x%2 == 0) :
   fat = 1
   i = 2
