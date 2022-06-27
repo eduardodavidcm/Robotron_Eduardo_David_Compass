@@ -43,6 +43,12 @@ Cenario: POST Realizar Login 200
     POST Endpoint /login
     Validar Status Code "200"
 
+Cenario: POST Login Invalido 401
+    [tags]      LOGININVALIDO
+    Criar Sessao
+    Login invalido
+    Validar Status Code "401"
+
 Cenario: PUT Editar Produto 200
     [tags]      PUTPRODUTO
     Criar Sessao
