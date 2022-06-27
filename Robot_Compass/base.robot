@@ -4,6 +4,8 @@ Library         RequestsLibrary
 Resource        ./usuarios_keywords.robot
 Resource        ./login_keywords.robot
 Resource        ./produtos_keywords.robot
+Resource        ./carrinho_keywords.robot
+
 #Sessão para setagem de variáveis para utilização
 * Variables *
 
@@ -41,6 +43,14 @@ Cenario: POST Realizar Login 200
     POST Endpoint /login
     Validar Status Code "200"
 
+Cenario: PUT Editar Produto 200
+    [tags]      PUTPRODUTO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    Criar um Produto e Armazenar ID
+    PUT Endpoint /produtos
+    Validar Status Code "200"
+
 Cenario: POST Criar Produto 201
     [tags]      POSTPRODUTO
     Criar Sessao
@@ -60,6 +70,13 @@ Cenario: POST Criar Usuario de Massa Estatico 201
     [tags]      POSTCRIARUSUARIOESTATICO
     Criar Sessao
     Criar Usuario Estatio Valido
+    Validar Status Code "201"
+
+Cenario: POST Cadastrar Carrinho
+    [tags]      POSTCARRINHO
+    Criar Sessao
+    Fazer Login e Armazenar Token
+    POST Endpoint /carrinhos
     Validar Status Code "201"
 
 #Sessão para criação de Keywords Personalizadas

@@ -18,6 +18,12 @@ DELETE Endpoint /produtos
     Log to Console          Response: ${response.content}
     Set Global Variable     ${response}
 
+PUT Endpoint /produtos
+    &{payload}              Create Dictionary   nome=Processs   preco=900   descricao=i7    quantidade=50
+    ${response}             PUT on Session      serverest       /produtos/${id_produto}  data=&{payload}
+    Log to Console          Response: ${response.content}
+    Set Global Variable     ${response}
+
 Validar Ter Criado Produto
     Should Be Equal         ${response.json()["message"]}   Cadastro realizado com sucesso
     Should Not Be Empty     ${response.json()["_id"]}
