@@ -1,0 +1,28 @@
+{
+    "user_valido":{
+        "nome": "James Bond",
+        "email": "jamesbond@gmail.com",
+        "password": "teste123",
+        "administrador": "true"
+    },
+    "user_invalido":{
+        "nome": "Invalido tester",
+        "email": "fulano@qa.com.br",
+        "password": "teste",
+        "administrador": "true"
+    },
+    "user_sem_senha":{
+        "nome": "Arnold",
+        "email": "arnold@gmail.com",
+        "password": "",
+        "administrador": "true"
+    
+    },
+    "user_sem_email":{
+        "nome": "Joshua",
+        "email": "",
+        "password": "teste123",
+        "administrador": "true"
+    
+    }
+}
