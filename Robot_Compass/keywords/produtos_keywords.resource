@@ -6,7 +6,7 @@ Resource         ../support/base.resource
 *** Keywords ***
 Cadastar Novo Produto
     ${produto} =                                                                        Gerar Novo Produto
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                                "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Cadastro realizado com sucesso"
     Validar Status Code "201"

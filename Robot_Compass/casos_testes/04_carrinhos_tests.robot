@@ -36,7 +36,7 @@ Cenario: Tentar Buscar Carrinho Nao Cadastrado
 Cenario: Cadastrar Carrinho Valido Administrador
     [Tags]                                                                                GET                            Carrinhos    POST_Carrinhos    Cadastrar_Carrinho_Valido_Administrador
     ${carrinho} =                                                                         Criar Dados Carrinho Valido
-    Logar E Salvar Token Como                                                             "Administrador"
+    Logar E Salvar Token                                                              "Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "201"
     Validar Mensagem "Cadastro realizado com sucesso"
@@ -45,7 +45,7 @@ Cenario: Cadastrar Carrinho Valido Administrador
 Cenario: Cadastrar Carrinho Valido Nao Administrador
     [Tags]                                                                                GET                            Carrinhos    POST_Carrinhos    Cadastrar_Carrinho_Valido_Nao_Administrador
     ${carrinho} =                                                                         Criar Dados Carrinho Valido
-    Logar E Salvar Token Como                                                             "Nao Administrador"
+    Logar E Salvar Token                                                              "Nao Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "201"
     Validar Mensagem "Cadastro realizado com sucesso"
@@ -61,7 +61,7 @@ Cenario: Tentar Cadastrar Carrinho Valido Sem Autenticacao
 Cenario: Tentar Cadastrar Mais de Um Carrinho
     [Tags]                                                                                GET                            Carrinhos    POST_Carrinhos    Cadastrar_Carrinho_Mais_De_Um
     ${carrinho} =                                                                         Criar Dados Carrinho Valido
-    Logar E Salvar Token Como                                                             "Administrador"
+    Logar E Salvar Token                                                             "Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "201"
     Validar Mensagem "Cadastro realizado com sucesso"
@@ -74,7 +74,7 @@ Cenario: Tentar Cadastrar Mais de Um Carrinho
 Cenraio: Tentar Cadastrar Carrinho Com Produto Invalido
     [Tags]                                                                                GET                    Carrinhos         POST_Carrinhos      Cadastrar_Carrinho_Produto_Invalido
     ${carrinho} =                                                                         Pegar Key Do Json      carrinhos.json    produto_invalido
-    Logar E Salvar Token Como                                                             "Nao Administrador"
+    Logar E Salvar Token                                                            "Nao Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "400"
     Validar Mensagem "Produto não encontrado"
@@ -82,7 +82,7 @@ Cenraio: Tentar Cadastrar Carrinho Com Produto Invalido
 Cenario: Tentar Cadastrar Carrinho Com Quantidade Insuficiente
     [Tags]                                                                                GET                    Carrinhos         POST_Carrinhos             Cadastrar_Carrinho_Quantidade_Insuficiente
     ${carrinho} =                                                                         Pegar Key Do Json      carrinhos.json    quantidade_insuficiente
-    Logar E Salvar Token Como                                                             "Nao Administrador"
+    Logar E Salvar Token                                                              "Nao Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "400"
     Validar Mensagem "Produto não possui quantidade suficiente"
@@ -90,7 +90,7 @@ Cenario: Tentar Cadastrar Carrinho Com Quantidade Insuficiente
 Cenario: Tentar Cadastrar Carrinho Invalido Sem idProduto
     [Tags]                                                                                GET                  Carrinhos         POST_Carrinhos    Cadastrar_Carrinho_Sem_idProduto
     ${carrinho} =                                                                         Pegar Key Do Json    carrinhos.json    sem_idProduto
-    Logar E Salvar Token Como                                                             "Administrador"
+    Logar E Salvar Token                                                              "Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "400"
     Validar "produtos" Com O Valor "produtos não contém 1 valor obrigatório"
@@ -98,7 +98,7 @@ Cenario: Tentar Cadastrar Carrinho Invalido Sem idProduto
 Cenario: Tentar Cadastrar Carrinho Invalido Sem Quantidade
     [Tags]                                                                                GET                  Carrinhos         POST_Carrinhos    Cadastrar_Carrinho_Sem_Quantidade
     ${carrinho} =                                                                         Pegar Key Do Json    carrinhos.json    sem_quantidade
-    Logar E Salvar Token Como                                                             "Administrador"
+    Logar E Salvar Token                                                              "Administrador"
     POST Autenticado EndPoint "/carrinhos" Com Body "${carrinho}" Headers "${headers}"
     Validar Status Code "400"
     Validar "produtos" Com O Valor "produtos não contém 1 valor obrigatório"
@@ -115,7 +115,7 @@ Cenario: Concluir Compra Com Carrinho Valido
 
 Cenario: Tentar Concluir Compra Usuario Sem Carrinho
     [Tags]                                                                          DELETE                 Carrinhos    DELETE_Carrinhos    Concluir_Compra_Carrinho_Invalido
-    Logar E Salvar Token Como                                                       "Nao Administrador"
+    Logar E Salvar Token                                                        "Nao Administrador"
     DELETE Autenticado EndPoint "carrinhos/concluir-compra" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Não foi encontrado carrinho para esse usuário"
@@ -138,7 +138,7 @@ Cenario: Cancelar Compra Com Carrinho Valido
 
 Cenario: Tentar Cancelar Compra Usuario Sem Carrinho
     [Tags]                                                                          DELETE                 Carrinhos    DELETE_Carrinhos    Cancelar_Compra    Cancelar_Compra_Carrinho_Invalido
-    Logar E Salvar Token Como                                                       "Nao Administrador"
+    Logar E Salvar Token                                                        "Nao Administrador"
     DELETE Autenticado EndPoint "carrinhos/cancelar-compra" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Não foi encontrado carrinho para esse usuário"

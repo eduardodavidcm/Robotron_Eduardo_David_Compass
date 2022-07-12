@@ -11,8 +11,7 @@ ${usuario_nao_cadastrado}    NaoExisto
 #Sessão para criação de keywords
 *** Keywords ***
 Cadastrar Novo Usuario
-    [Documentation]                                      Aceita como argumento um tipo de usuário e retorna um usuário do tipo desejado
-    ...                                                  Se não for passado um tipo de usuário, loga como usuário Não Administrador
+    [Documentation]                                      
     ...                                                  Tipos de usuario Aceitos:
     ...                                                  - "Administrador"
     ...                                                  - "Nao Administrador"

@@ -36,7 +36,7 @@ Cenario: Tentar Buscar Produto Nao Cadastrado
 Cenario: Cadastrar Produto Valido
     [Tags]                                                                              POST                  Cadastrar_Produto    Cadastar_Produto_Valido
     ${produto} =                                                                        Gerar Novo Produto
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Cadastro realizado com sucesso"
     Validar Status Code "201"
@@ -44,7 +44,7 @@ Cenario: Cadastrar Produto Valido
 
 Cenario: Cadastrar 20 Produtos
     [Tags]                                                                              POST                  Cadastrar_Produto    Cadastar_Produto_20_Produtos
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     FOR                                                                                 ${i}                  IN RANGE             20
     ${produto} =                                                                        Gerar Novo Produto
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
@@ -56,7 +56,7 @@ Cenario: Cadastrar 20 Produtos
 Cenario: Tentar Cadastrar Produto Valido Nao Administrador
     [Tags]                                                                              POST                   Cadastrar_Produto    Cadastar_Produto_Valido_Nao Administrador
     ${produto} =                                                                        Gerar Novo Produto
-    Logar E Salvar Token Como                                                           "Nao Administrador"
+    Logar E Salvar Token                                                            "Nao Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Rota exclusiva para administradores"
     Validar Status Code "403"
@@ -79,7 +79,7 @@ Cenario: Tentar Cadastrar Produto Ja Cadastrado
     [Tags]                                                                              POST                        Cadastrar_Produto    Cadastar_Produto_Ja_Cadastrado
     ${produto} =                                                                        Pegar Produto Cadastrado
     Remove From Dictionary                                                              ${produto}                  _id
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Mensagem "Já existe produto com esse nome"
     Validar Status Code "400"
@@ -87,7 +87,7 @@ Cenario: Tentar Cadastrar Produto Ja Cadastrado
 Cenario: Tentar Cadastar Produto Com Nome Vazio
     [Tags]                                                                              POST                                        Cadastrar_Produto    Cadastar_Produto_Com_Nome_Vazio
     ${produto} =                                                                        Pegar Produto Do JSON Sem O Campo "nome"
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "nome" Com O Valor "nome é obrigatório"
@@ -95,7 +95,7 @@ Cenario: Tentar Cadastar Produto Com Nome Vazio
 Cenario: Tentar Cadastar Produto Com Preco Vazio
     [Tags]                                                                              POST                                         Cadastrar_Produto    Cadastar_Produto_Com_Preco_Vazio
     ${produto} =                                                                        Pegar Produto Do JSON Sem O Campo "preco"
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "preco" Com O Valor "preco é obrigatório"
@@ -103,7 +103,7 @@ Cenario: Tentar Cadastar Produto Com Preco Vazio
 Cenario: Tentar Cadastar Produto Com Preco Invalido
     [Tags]                                                                              POST                                                  Cadastrar_Produto    Cadastar_Produto_Preco_Invalido
     ${produto} =                                                                        Pegar Produto Do JSON Com o Campo "preco" Invalido
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "preco" Com O Valor "preco deve ser um inteiro"
@@ -111,7 +111,7 @@ Cenario: Tentar Cadastar Produto Com Preco Invalido
 Cenario: Tentar Cadastar Produto Com Descricao Vazia
     [Tags]                                                                              POST                                             Cadastrar_Produto    Cadastar_Produto_Com_Descricao_Vazia
     ${produto} =                                                                        Pegar Produto Do JSON Sem O Campo "descricao"
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "descricao" Com O Valor "descricao é obrigatório"
@@ -119,7 +119,7 @@ Cenario: Tentar Cadastar Produto Com Descricao Vazia
 Cenario: Tentar Cadastar Produto Com Quantidade Vazia
     [Tags]                                                                              POST                                              Cadastrar_Produto    Cadastar_Produto_Com_Quantidade_Vazia
     ${produto} =                                                                        Pegar Produto Do JSON Sem O Campo "quantidade"
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "quantidade" Com O Valor "quantidade é obrigatório"
@@ -127,7 +127,7 @@ Cenario: Tentar Cadastar Produto Com Quantidade Vazia
 Cenario: Tentar Cadastrar Produto Com A Quantidade Invalida
     [Tags]                                                                              POST                                                       Cadastrar_Produto    Cadastar_Produto_Quantidade_Invalida
     ${produto} =                                                                        Pegar Produto Do JSON Com o Campo "quantidade" Invalido
-    Logar E Salvar Token Como                                                           "Administrador"
+    Logar E Salvar Token                                                            "Administrador"
     POST Autenticado EndPoint "/produtos" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "quantidade" Com O Valor "quantidade deve ser um inteiro"
@@ -138,7 +138,7 @@ Cenario: Tentar Cadastrar Produto Com A Quantidade Invalida
 Cenario: Atualizar Produto Não Cadastrado
     [Tags]                                                                                       PUT                   Produtos    PUT_Produtos    Atualizar_Produto_NAO_CADASTRADO
     ${produto} =                                                                                 Gerar Novo Produto
-    Logar E Salvar Token Como                                                                    "Administrador"
+    Logar E Salvar Token                                                                     "Administrador"
     PUT Autenticado EndPoint "/produtos/NaoExisto" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "201"
     Validar Mensagem "Cadastro realizado com sucesso"
@@ -147,7 +147,7 @@ Cenario: Atualizar Produto Não Cadastrado
 Cenario: Atualizar Nome do Produto
     [Tags]                                                                                               PUT                                         Produtos    PUT_Produtos    Atualizar_Produto_Nome 
     ${produto} =                                                                                         Alterar "String" Campo "nome" Do Produto
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Registro alterado com sucesso"
@@ -155,7 +155,7 @@ Cenario: Atualizar Nome do Produto
 Cenario: Atualizar Descrição do Produto
     [Tags]                                                                                               PUT                                              Produtos    PUT_Produtos    Atualizar_Produto_Descricao 
     ${produto} =                                                                                         Alterar "String" Campo "descricao" Do Produto
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Registro alterado com sucesso"
@@ -163,7 +163,7 @@ Cenario: Atualizar Descrição do Produto
 Cenario: Atualizar Preço do Produto
     [Tags]                                                                                               PUT                                           Produtos    PUT_Produtos    Atualizar_Produto_Preco 
     ${produto} =                                                                                         Alterar "Integer" Campo "preco" Do Produto
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Registro alterado com sucesso"
@@ -171,7 +171,7 @@ Cenario: Atualizar Preço do Produto
 Cenario: Atualizar Quantidade do Produto
     [Tags]                                                                                               PUT                                                Produtos    PUT_Produtos    Atualizar_Produto_Quantidade 
     ${produto} =                                                                                         Alterar "Integer" Campo "quantidade" Do Produto
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Registro alterado com sucesso"
@@ -184,10 +184,10 @@ Cenario: Tentar Atualizar Produto Cadastrado Sem Autenticacao
     Validar Status Code "401"
     Validar Mensagem "Token de acesso ausente, inválido, expirado ou usuário do token não existe mais"
 
-Cenario: Tentar Atualizar Produto Autenticado Como Nao Administrador
+Cenario: Tentar Atualizar Produto Autenticado  Nao Administrador
     [Tags]                                                                                               PUT                         Produtos    PUT_Produtos    Atualizar_Produto_Nao Administrador
     ${produto} =                                                                                         Pegar Produto Cadastrado
-    Logar E Salvar Token Como                                                                            "Nao Administrador"
+    Logar E Salvar Token                                                                             "Nao Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "403"
     Validar Mensagem "Rota exclusiva para administradores"
@@ -202,7 +202,7 @@ Cenario: Tentar Atualizar Produto Cadastrado Com Token Invalido
 Cenario: Tentar Atualizar Produto Sem Alteracao
     [Tags]                                                                                       PUT                         Produtos    PUT_Produtos    Atualizar_Produto_Sem_Alteracao
     ${produto} =                                                                                 Pegar Produto Cadastrado
-    Logar E Salvar Token Como                                                                    "Administrador"
+    Logar E Salvar Token                                                                     "Administrador"
     PUT Autenticado EndPoint "/produtos/NaoExisto" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar Mensagem "Já existe produto com esse nome"
@@ -210,7 +210,7 @@ Cenario: Tentar Atualizar Produto Sem Alteracao
 Cenario: Tentar Atualizar Produto Com Preco Invalido
     [Tags]                                                                                               PUT                                                   Produtos    PUT_Produtos    Atualizar_Produto_Preco_Invalido
     ${produto} =                                                                                         Pegar Produto Do JSON Com o Campo "preco" Invalido
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
     Validar "preco" Com O Valor "preco deve ser um inteiro"
@@ -218,7 +218,7 @@ Cenario: Tentar Atualizar Produto Com Preco Invalido
 Cenario: Tentar Atualizar Produto Com Quantidade Invalida
     [Tags]                                                                                               PUT                                                        Produtos    PUT_Produtos    Atualizar_Produto_Quantidade_Invalida
     ${produto} =                                                                                         Pegar Produto Do JSON Com o Campo "quantidade" Invalido
-    Logar E Salvar Token Como                                                                            "Administrador"
+    Logar E Salvar Token                                                                             "Administrador"
     PUT Autenticado EndPoint "/produtos/${produto['_id']}" Com Body "${produto}" Headers "${headers}"
     Validar Status Code "400"
 
@@ -228,14 +228,14 @@ Cenario: Tentar Atualizar Produto Com Quantidade Invalida
 Cenario: Deletar Produto Cadastrado
     [Tags]                                                                            DELETE                   Produtos    DELETE_Produtos    Deletar_Produto_Cadastrado
     ${produto}=                                                                       Cadastar Novo Produto
-    Logar E Salvar Token Como                                                         "Administrador"
+    Logar E Salvar Token                                                          "Administrador"
     DELETE Autenticado EndPoint "/produtos/${produto['_id']}" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Registro excluído com sucesso"
 
 Cenario: Tentar Deletar Produto Não Cadastrado
     [Tags]                                                                    DELETE             Produtos    DELETE_Produtos    Deletar_Produto_Nao_Cadastrado
-    Logar E Salvar Token Como                                                 "Administrador"
+    Logar E Salvar Token                                                  "Administrador"
     DELETE Autenticado EndPoint "/produtos/NaoExisto" Headers "${headers}"
     Validar Status Code "200"
     Validar Mensagem "Nenhum registro excluído"
@@ -250,6 +250,6 @@ Cenario: Tentar Deletar Produto Cadastrado Sem Autenticacao
 Cenario: Tentar Deletar Produto Cadastrado Com Autenticacao De Nao Administrador
     [Tags]                                                                            DELETE                   Produtos    DELETE_Produtos    Deletar_Produto_Nao Administrador
     ${produto}=                                                                       Cadastar Novo Produto
-    Logar E Salvar Token Como                                                         "Nao Administrador"
+    Logar E Salvar Token                                                          "Nao Administrador"
     DELETE Autenticado EndPoint "/produtos/${produto['_id']}" Headers "${headers}"
     Validar Status Code "403"
