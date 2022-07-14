@@ -42,12 +42,14 @@ Abra o cmd na pasta deste repositório e escolha quais grupos de testes deseja e
 ```
 - Para executar os testes de um endpoint por tag :
     - Principais TAGs para testes: <br>
-     * [Login](https://serverest.dev/) para executar os testes do Endpoint /login
-     *  [Usuários](https://serverest.dev/) para executar os testes do Endpoint /usuarios
-     * [Produtos](https://serverest.dev/) para executar os testes do Endpoint /produtos
-     * [Carrinhos](https://serverest.dev/) para executar os testes do Endpoint /carrinhos
-     
-   
+        * [Login](https://serverest.dev/) para executar os testes do Endpoint /login
+        * [Usuários](https://serverest.dev/) para executar os testes do Endpoint /usuarios
+        * [Produtos](https://serverest.dev/) para executar os testes do Endpoint /produtos
+        * [Carrinhos](https://serverest.dev/) para executar os testes do Endpoint /carrinhos
+        * [POST](https://serverest.dev/) para executar todos os metodos POST
+        * [GET](https://serverest.dev/) para executar todos os metodos POST
+        * [PUT](https://serverest.dev/) para executar todos os metodos POST
+        * [DELETE](https://serverest.dev/) para executar todos os metodos POST
 
     
 
