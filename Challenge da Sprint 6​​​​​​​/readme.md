@@ -8,7 +8,7 @@ O projeto consiste na criação de testes automatizados com Robot para a valida�
 
 
 
-## Pré requisitos
+## Pré requisitos:
 - Bibliotecas
     -  pip install requests
     -  pip install Faker
@@ -26,7 +26,7 @@ O projeto consiste na criação de testes automatizados com Robot para a valida�
         - Faker Library
         - Collections
   
-## Execução dos Testes
+## Execução dos Testes:
 Execute a API ServeRest localmente:
 ```text
 > npx serverest
@@ -53,41 +53,38 @@ Abra o cmd na pasta deste repositório e escolha quais grupos de testes deseja e
 
     
 
-## Estrutura de Diretórios
-Abaixo encontra-se uma breve descrição dos diretórios presentes neste repositório.
+## Diretórios:
 
-* [Testes/](Testes)*: diretório com todos os arquivos que compoem os testes automatizados.
-    * [keywords/](Testes/keywords)*: possui arquivos com keywords para ações em cada endpoint da API.
-        <details><summary><i>arquivos</i></summary>
-        usuarios_keywords.robot <br>
-        login_keywords.robot <br>
-        produtos_keywords.robot <br>
-        carrinhos_keywords.robot </details>      
-    * [reports/](Testes/reports)*: possui arquivos referentes as estatisticas e retornos da execução dos testes.
-        <details><summary><i>arquivos</i></summary> 
-        log.html <br>
-        output.xml <br>
-        report.html </details>        
-    * [support/](Testes/support)*: possui arquivos de suporte para o funcionamento dos testes.
-        *  [common/](Testes/support/common)*: possui arquivo com as keywords comuns a todos os endpoints.
-            <details><summary><i>arquivo</i></summary> 
-            commom.robot </details>           
-        *  [fixtures/](Testes/support/fixtures)*: possui as massas de dados estáticas e dinamicas que são usadas nos testes.
-            *  [static/](Testes/support/fixtures/static)*: massas de dados estáticas.
-                  <details><summary><i>arquivos</i></summary> 
-                  json_carrinho_ex.json <br>
-                  json_login_ex.json </details>
-            *  dynamics.robot            
-        *  [python_functions/](Testes/support/python_functions)*: possui arquivo com funções personalizadas em python que são consumidas no robot.
-            <details><summary><i>arquivo</i></summary> 
-            python_functions.py </details>             
-        *  [variables/](Testes/support/variables)*: possui arquivo com as variáveis comuns utilizadas nos testes.
-            <details><summary><i>arquivo</i></summary> 
-            serverest_variables.robot </details>            
-        *  base.robot
-    *  [tests/](Testes/tests)*: possui arquivos dos casos de testes de cada endpoint da API.
+* [casos_testes/](/casos_testes): Arquivos dos casos de testes de cada endpoint.
+    * 01_login_testes.robot <br>
+    * 02_usuarios_testes.robot <br>
+    * 03_produtos_testes.robot <br>
+    * 04_carrinhos_testes.robot <br>     
+* [keywords/](/keywords): Arquivos com keywords para ações em cada endpoint.
+    * carrinhos_keywords.resource <br>
+    * login_keywords.resource <br>
+    * produtos_keywords.resource <br>
+    * usuarios_keywords.resource <br>
+*  [casos_testes/](Testes/tests)*: possui arquivos dos casos de testes de cada endpoint da API.
         <details><summary><i>arquivos</i></summary>
         usuarios_tests.robot <br>
         login_tests.robot <br>
         produtos_tests.robot <br>
-        carrinhos_tests.robot </details>
+        carrinhos_tests.robot </details>             
+* [support/](Testes/support)*: possui arquivos de suporte para o funcionamento dos testes.
+    *  [common/](Testes/support/common)*: possui arquivo com as keywords comuns a todos os endpoints.
+            <details><summary><i>arquivo</i></summary> 
+            commom.robot </details>           
+    *  [fixtures/](Testes/support/fixtures)*: possui as massas de dados estáticas e dinamicas que são usadas nos testes.
+        *  [static/](Testes/support/fixtures/static)*: massas de dados estáticas.
+                  <details><summary><i>arquivos</i></summary> 
+                  json_carrinho_ex.json <br>
+                  json_login_ex.json </details>
+        *  dynamics.robot            
+    *  [python_functions/](Testes/support/python_functions)*: possui arquivo com funções personalizadas em python que são consumidas no robot.
+            <details><summary><i>arquivo</i></summary> 
+            python_functions.py </details>             
+    *  [variables/](Testes/support/variables)*: possui arquivo com as variáveis comuns utilizadas nos testes.
+            <details><summary><i>arquivo</i></summary> 
+            serverest_variables.robot </details>            
+    *  base.robot
