@@ -55,36 +55,28 @@ Abra o cmd na pasta deste repositório e escolha quais grupos de testes deseja e
 
 ## Diretórios:
 
-* [casos_testes/](/casos_testes): Arquivos dos casos de testes de cada endpoint.
+* [casos_testes](/casos_testes): Arquivos dos casos de testes de cada endpoint.
     * 01_login_testes.robot <br>
     * 02_usuarios_testes.robot <br>
     * 03_produtos_testes.robot <br>
     * 04_carrinhos_testes.robot <br>     
-* [keywords/](/keywords): Arquivos com keywords para ações em cada endpoint.
+* [keywords](/keywords): Arquivos com keywords para ações em cada endpoint.
     * carrinhos_keywords.resource <br>
     * login_keywords.resource <br>
     * produtos_keywords.resource <br>
     * usuarios_keywords.resource <br>
-*  [casos_testes/](Testes/tests)*: possui arquivos dos casos de testes de cada endpoint da API.
-        <details><summary><i>arquivos</i></summary>
-        usuarios_tests.robot <br>
-        login_tests.robot <br>
-        produtos_tests.robot <br>
-        carrinhos_tests.robot </details>             
-* [support/](Testes/support)*: possui arquivos de suporte para o funcionamento dos testes.
-    *  [common/](Testes/support/common)*: possui arquivo com as keywords comuns a todos os endpoints.
-            <details><summary><i>arquivo</i></summary> 
-            commom.robot </details>           
-    *  [fixtures/](Testes/support/fixtures)*: possui as massas de dados estáticas e dinamicas que são usadas nos testes.
-        *  [static/](Testes/support/fixtures/static)*: massas de dados estáticas.
-                  <details><summary><i>arquivos</i></summary> 
-                  json_carrinho_ex.json <br>
-                  json_login_ex.json </details>
-        *  dynamics.robot            
-    *  [python_functions/](Testes/support/python_functions)*: possui arquivo com funções personalizadas em python que são consumidas no robot.
-            <details><summary><i>arquivo</i></summary> 
-            python_functions.py </details>             
-    *  [variables/](Testes/support/variables)*: possui arquivo com as variáveis comuns utilizadas nos testes.
-            <details><summary><i>arquivo</i></summary> 
-            serverest_variables.robot </details>            
-    *  base.robot
+* [reports](/reports): Arquivos de suporte para o funcionamento dos testes.
+    * log.html <br>
+    * output.xml <br>
+    * report.html <br>            
+* [support](/support): possui arquivos de suporte para o funcionamento dos testes.
+    *  [common](/support/common): possui arquivo com as keywords comuns a todos os endpoints.   
+        * commom.resource <br>
+    *  [fixtures](/support/fixtures): possui as massas de dados estáticas e dinamicas que são usadas nos testes.
+        *  [static](/support/fixtures/static): massas de dados estáticas. 
+            * carrinhos.json <br>
+            * usuarios.json <br>
+        *  dynamics.robot                        
+    *  [variables/](/support/variables): possui arquivo com as variáveis comuns utilizadas nos testes.
+        * serverest.resource <br>             
+    *  base.resource
