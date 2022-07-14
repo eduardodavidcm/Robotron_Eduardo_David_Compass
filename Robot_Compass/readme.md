@@ -2,7 +2,7 @@
 
 # Testes Automatizados da API pública da [Serverest](https://serverest.dev/) Utilizando Robot Framework
 
-Projeto final da sprint 06 da trilha Robotron - PB da [compass.uol](compass.uol)
+O Challenge da Sprint 6​​​​​​​ da trilha Robotron - PB da [compass.uol](https://compass.uol/pt/?utm_source=google-ads&utm_medium=ppc&utm_campaign=compasso-uol-institucional&utm_term=compass%20uol&gclid=CjwKCAjw2rmWBhB4EiwAiJ0mtWalabBc8Gmx4-wPDUpL_vNHSMPuB6x1LnQLGLvAI__zqAqu5cynPxoCsOwQAvD_BwE)
 
 O projeto consiste na criação de testes automatizados com Robot para a validação da API. 
 
@@ -10,11 +10,11 @@ O projeto consiste na criação de testes automatizados com Robot para a valida�
 
 ## Pré requisitos
 - Bibliotecas
-    - > pip install requests
-    - > pip install Faker
-    - > pip install robotframework
-    - > pip install robotframework-requests
-    - > pip install robotframework-faker
+    -  pip install requests
+    -  pip install Faker
+    -  pip install robotframework
+    -  pip install robotframework-requests
+    -  pip install robotframework-faker
 - Instalação
     - Node.js
     - Python 3
@@ -41,20 +41,14 @@ Abra o cmd na pasta deste repositório e escolha quais grupos de testes deseja e
 > robot -d .\reports -i "tags" .\casos_testes
 ```
 - Para executar os testes de um endpoint por tag :
-    - Cada cenário de teste possui tags especificas: <br>
-        Ex:   &nbsp;&nbsp;&nbsp;&nbsp; [tags]      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GET.USUARIOS <br>
-        1ª tag - corresponde a uma identificação do conjunto de cenários com o mesmo metodo HTTP. <br>
-        2ª tag - corresponde a uma identificação unica de cada teste. <br>
+    - Principais TAGs para testes: <br>
+     ```text
+    [Login] - (https://serverest.dev/) para executar os testes do Endpoint /login
+    [Usuários] - (https://serverest.dev/) para executar os testes do Endpoint /usuarios
+    [Produtos] - (https://serverest.dev/) para executar os testes do Endpoint /produtos
+    [Carrinhos] - (https://serverest.dev/) para executar os testes do Endpoint /carrinhos
+     ```
    
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Todos os testes de um metodo HTTP:
-```text
-> robot -d ./reports -i 'METODO' ./tests/'nomedoendpoint'_tests.robot
-```
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   Um unico teste pela sua tag especifica:
-```text
-> robot -d ./reports -i 'TAG.ESPECIFICA' ./tests/'nomedoendpoint'_tests.robot
-```
 
     
 
